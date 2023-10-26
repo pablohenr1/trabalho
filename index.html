@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Ferramentas</title>
+    <link real="stylesheet" href="style.css">
+</head>
+<body>
+   
+    
+
+    <h1>Controle de Ferramentas</h1>
+
+    <!-- Formulário para adicionar ferramentas -->
+    <h2>Adicionar Ferramenta</h2>
+    <form id="formFerramenta">
+        <label for="nome">Nome da Ferramenta:</label>
+         <input type="text" id="nome" required><br>
+
+        <label for="numeroSerie">Número de Série:</label>
+        <input type="text" id="numeroSerie" required><br>
+
+        <label for="dataAquisicao">Data de Aquisição:</label>
+        <input type="date" id="dataAquisicao" required><br>
+
+        <label for="estado">Estado:</label>
+        <input type="text" id="estado" required><br>
+
+        <label for="nomeFuncionario">Nome do Funcionário:</label>
+        <input type="text" id="nomeFuncionario" required><br>
+
+        <input type="submit" value="Adicionar Ferramenta">
+    </form>
+
+    <!-- Lista de Ferramentas -->
+    <h2>Lista de Ferramentas</h2>
+    <ul id="listaFerramentas">
+        <!-- Ferramentas serão adicionadas aqui -->
+    </ul>
+
+    <script>
+        // JavaScript para adicionar e listar ferramentas
+        document.getElementById("formFerramenta").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const nome = document.getElementById("nome").value;
+            const numeroSerie = document.getElementById("numeroSerie").value;
+            const localizacao = document.getElementById("localizacao").value;
+            const dataAquisicao = document.getElementById("dataAquisicao").value;
+            const estado = document.getElementById("estado").value;
+            const nomeFuncionario = document.getElementById("nomeFuncionario").value;
+
+            // Crie um elemento de lista para a ferramenta e adicione-o à lista
+            const listaFerramentas = document.getElementById("listaFerramentas");
+            const ferramentaItem = document.createElement("li");
+            ferramentaItem.innerHTML = `
+                <strong>Nome da Ferramenta:</strong> ${nome}<br>
+                <strong>Número de Série:</strong> ${numeroSerie}<br>
+                <strong>Localização:</strong> ${localizacao}<br>
+                <strong>Data de Aquisição:</strong> ${dataAquisicao}<br>
+                <strong>Estado:</strong> ${estado}<br>
+                <strong>Nome do Funcionário:</strong> ${nomeFuncionario}
+            `;
+            listaFerramentas.appendChild(ferramentaItem);
+
+            // Limpe o formulário
+            document.getElementById("formFerramenta").reset();
+        });
+    </script>
+</body>
+</html>
